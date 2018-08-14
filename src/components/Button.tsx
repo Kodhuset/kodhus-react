@@ -8,7 +8,7 @@ export interface ButtonProps {
   withArrow?: 'left' | 'right'
 }
 
-export const Button: React.SFC<ButtonProps> = (props) => {
+export const Button: React.SFC<ButtonProps> = ({ children, color, corner, size, withArrow }) => {
   const defaultColors: any = {
     primary: 'cdt-btn-primary',
     'primary-alt': 'cdt-btn-primary-1',
@@ -17,33 +17,33 @@ export const Button: React.SFC<ButtonProps> = (props) => {
     gray: 'cdt-btn-gray',
   };
   let cornerStyle = '';
-  if (props.corner) {
-    if (props.corner === 'rounded') {
+  if (corner) {
+    if (corner === 'rounded') {
       cornerStyle = ' cdt-btn-rounded';
-    } else if (props.corner === 'fully-rounded') {
+    } else if (corner === 'fully-rounded') {
       cornerStyle = ' cdt-btn-full-rounded';
     }
   }
   let buttonSize = '';
-  if (props.size) {
-    if (props.size === 'small') {
+  if (size) {
+    if (size === 'small') {
       buttonSize = ' cdt-btn-small';
-    } else if (props.size === 'large') {
+    } else if (size === 'large') {
       buttonSize = ' cdt-btn-large';
     }
   }
   let arrow = '';
-  if (props.withArrow) {
+  if (withArrow) {
     arrow = ' arrow';
-    if (props.withArrow === 'left') {
+    if (withArrow === 'left') {
       arrow += ' before';
     }
-    if (props.withArrow === 'right') {
+    if (withArrow === 'right') {
       arrow += ' after';
     }
   }
-  const buttonColor = (defaultColors[props.color]) ? ` ${defaultColors[props.color]}` : '';
+  const buttonColor = (defaultColors[color]) ? ` ${defaultColors[color]}` : '';
   return <button className={'cdt-btn' + buttonColor + cornerStyle + buttonSize + arrow}>
-    { props.children }
+    { children }
   </button>;
 };

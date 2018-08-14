@@ -1,0 +1,13 @@
+
+{
+  "extends": "tslint-config-airbnb",
+  "rules":  {
+    "semicolon": [
+        true,
+       "always",
+       "ignore-interfaces"
+    ],
+    "quotemark": [true, "single"],
+    "variable-name": [true, "allow-pascal-case"]
+  }
+}

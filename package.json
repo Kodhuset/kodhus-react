@@ -1,0 +1,28 @@
+{
+  "name": "kodhus-react",
+  "version": "0.1.0",
+  "description": "Kodhus UI react library",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run clean-dist && webpack -p --config=configs/webpack/prod.js",
+    "clean-dist": "rm -f -r -d dist",
+    "start": "npm run start-dev",
+    "start-dev": "webpack-dev-server"
+  },
+  "author": "Kodhus",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/react": "^16.4.10",
+    "@types/react-dom": "^16.0.7",
+    "awesome-typescript-loader": "^5.2.0",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "source-map-loader": "^0.2.3",
+    "tslint": "^5.11.0",
+    "tslint-config-airbnb": "^5.9.2",
+    "typescript": "^3.0.1",
+    "webpack": "^4.16.5",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.5"
+  }
+}

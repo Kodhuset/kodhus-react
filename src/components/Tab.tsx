@@ -5,6 +5,11 @@ type TabDataType = {
   content: string,
 };
 
+type DefaultProps = {
+  selected: '0',
+  align: 'left',
+};
+
 export interface TabProps {
   tabs: TabDataType[],
   selected?: string
@@ -12,6 +17,11 @@ export interface TabProps {
 }
 export class Tab extends React.Component<TabProps,
 { tabs: TabDataType[], selected: string, align: string }> {
+  static defaultProps: DefaultProps = {
+    selected: '0',
+    align: 'left',
+  };
+
   constructor(props: TabProps) {
     super(props);
     const { tabs, selected, align } = props;

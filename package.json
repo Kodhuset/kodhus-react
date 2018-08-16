@@ -1,8 +1,8 @@
 {
-  "name": "kodhus-react",
-  "version": "0.1.0",
+  "name": "kodhus-ui-react",
+  "version": "0.2.0",
   "description": "Kodhus UI react library",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "build": "npm run clean-dist && webpack -p --config=configs/webpack/prod.js",
     "clean-dist": "rm -f -r -d dist",

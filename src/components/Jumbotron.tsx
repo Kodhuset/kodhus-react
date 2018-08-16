@@ -5,11 +5,12 @@ export interface JumbotronProps {
   type?: 'rounded' | 'tilted',
   align?: 'left' | 'right' | 'center',
   tiltDir?: 'left' | 'right',
-  style?: any
+  style?: any,
+  backgroundColor?: string
 }
 
 export const Jumbotron: React.SFC<JumbotronProps> =
-({ children, type, align, tiltDir, style }) => {
+({ children, type, align, tiltDir, style, backgroundColor = '#eee' }) => {
   let classNames = '';
   if (align) {
     if (align === 'center') {
@@ -21,12 +22,14 @@ export const Jumbotron: React.SFC<JumbotronProps> =
   if (type) {
     if (type === 'rounded') {
       classNames += ' rounded';
-      return <div className={`cdt-jumbotron ${classNames}`}>{children}</div>;
+      return <div className={`cdt-jumbotron ${classNames}`}
+      style={{ backgroundColor }}>{children}</div>;
     }
     if (type === 'tilted') {
       return <div className={`cdt-jumbotron ${classNames}`}>
-          {(tiltDir && tiltDir === 'right') ? <div className='cdt-bg-tilt-right'></div>
-          : <div className='cdt-bg-tilt-left'></div>}
+          {(tiltDir && tiltDir === 'right') ?
+          <div className='cdt-bg-tilt-right' style={{ backgroundColor }}></div>
+          : <div className='cdt-bg-tilt-left' style={{ backgroundColor }}></div>}
           {children}
       </div>;
     }

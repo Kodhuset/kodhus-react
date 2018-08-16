@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 export interface ButtonProps {
+  [key: string]: any;
   children?: React.ReactNode,
   color?: 'primary' | 'primary-alt' | 'secondary' | 'error' | 'gray',
   corner?: 'rounded' | 'fully-rounded',
@@ -8,7 +9,8 @@ export interface ButtonProps {
   withArrow?: 'left' | 'right'
 }
 
-export const Button: React.SFC<ButtonProps> = ({ children, color, corner, size, withArrow }) => {
+export const Button: React.SFC<ButtonProps> =
+({ children, color, corner, size, withArrow, rest }) => {
   const defaultColors: any = {
     primary: 'cdt-btn-primary',
     'primary-alt': 'cdt-btn-primary-1',
@@ -43,7 +45,7 @@ export const Button: React.SFC<ButtonProps> = ({ children, color, corner, size, 
     }
   }
   const buttonColor = (defaultColors[color]) ? ` ${defaultColors[color]}` : '';
-  return <button className={'cdt-btn' + buttonColor + cornerStyle + buttonSize + arrow}>
+  return <button {...rest} className={'cdt-btn' + buttonColor + cornerStyle + buttonSize + arrow}>
     { children }
   </button>;
 };

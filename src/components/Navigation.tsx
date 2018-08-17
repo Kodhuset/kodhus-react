@@ -2,7 +2,7 @@ import * as React from 'react';
 
 export interface NavigationProps {
   itemStyle?: 'border' | 'highlight' | 'underline',
-  items: any
+  navigations: any
 
 }
 
@@ -12,7 +12,7 @@ export class Navigation extends React.Component<NavigationProps, {}> {
   };
 
   render() {
-    const { itemStyle, items } = this.props;
+    const { itemStyle, navigations } = this.props;
     return (
       <div className={`cdt-top-nav ${itemStyle}`}>
         <div className='logo'>
@@ -21,15 +21,39 @@ export class Navigation extends React.Component<NavigationProps, {}> {
             <span></span>
           </span>
         </div>
-        <div className='navigations menu-right'>
+        {navigations.primary &&
+          <div className='navigations'>
+          {navigations.primary.first &&
+            (<nav>
+              <ul>
+                {navigations.primary.first.items.map((primaryItems: any, i: number) => {
+                  return <li key={i}><a href='#'>{primaryItems.label}</a></li>;
+                })}
+              </ul>
+          </nav>)
+          }
+          {navigations.primary.second &&
+            (<nav>
+              <ul>
+                {navigations.primary.second.items.map((primaryItems: any, i: number) => {
+                  return <li key={i}><a href='#'>{primaryItems.label}</a></li>;
+                })}
+              </ul>
+          </nav>)
+          }
+        </div>
+        }
+        {navigations.secondary && (
+          <div className='navigations cdt-second-nav center underline dark'>
           <nav>
             <ul>
-              {items.primary && items.primary.map((item: any, index: number) => {
-                return <li key={index}><a href='#'>{item.label}</a></li>;
-              })}
+              {navigations.secondary.items.map((secondaryItems: any, i: number) => {
+                return <li key={i}><a href='#'>{secondaryItems.label}</a></li>;
+              })};
             </ul>
           </nav>
         </div>
+        )}
       </div>
     );
   }

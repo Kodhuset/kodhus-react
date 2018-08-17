@@ -20,12 +20,30 @@ const App = (props: AppProps) => {
     { title: 'Tab 4', content: 'Tab content for tab 4' },
   ];
   const navigations = {
-    primary : [{ label: 'Kodhus' }, { label: 'Prototypes' },
-    { label: 'About us' }, { label: 'Your team' }],
+    primary : {
+      first: {
+        items: [
+          { label: 'About us' }, { label: 'Your team' },
+          { label: 'Kodhus' }, { label: 'Prototypes' },
+        ],
+      },
+      second: {
+        items: [
+          { label: 'About us' }, { label: 'Your team' },
+          { label: 'Kodhus' }, { label: 'Prototypes' },
+        ],
+      },
+    },
+    secondary: {
+      items: [
+        { label: 'About us' }, { label: 'Your team' },
+        { label: 'Kodhus' }, { label: 'Prototypes' },
+      ],
+    },
   };
 
   return (<Container>
-    <Navigation itemStyle='underline' items={navigations}></Navigation>
+    <Navigation itemStyle='underline' navigations={navigations}></Navigation>
     <BlockRow>
       <Notification actionLabel='close' autoClose='true'>
         This is a notification

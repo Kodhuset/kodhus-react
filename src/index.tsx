@@ -9,6 +9,8 @@ import { Tab } from './components/Tab';
 import { Notification } from './components/Notification';
 import { Jumbotron } from './components/Jumbotron';
 import { Navigation } from './components/Navigation';
+import { FormControl } from './components/FormControl';
+import { Input } from './components/Input';
 
 interface AppProps {}
 
@@ -68,6 +70,19 @@ const App = (props: AppProps) => {
         <Button href='#' corner='rounded' size='large' color='primary'>Call to action</Button>
       </Block>
     </Jumbotron>
+    <BlockRow>
+      <FormControl>
+        <label>Username</label>
+        <Input  />
+      </FormControl>
+    </BlockRow>
+    <BlockRow>
+      <FormControl>
+        <label>Password</label>
+        <Input type='error' />
+        <label>Something wrong</label>
+      </FormControl>
+    </BlockRow>
   </Container>);
 };
 

@@ -20,6 +20,8 @@ import { ListItemAvatar } from './components/ListItemAvatar';
 import { ListItemContent } from './components/ListItemContent';
 import { ListItemExtra } from './components/ListItemExtra';
 import { Dialog } from './components/Dialog';
+import { Card } from './components/Card';
+import { Breadcrumb } from './components/Breadcrumb';
 
 interface AppProps {}
 
@@ -67,6 +69,12 @@ const App = (props: AppProps) => {
       <Block size='col-6'>
       <Button color='primary' withArrow='right'>Amazing</Button>
       </Block>
+    </BlockRow>
+    <BlockRow>
+      <Breadcrumb></Breadcrumb>
+    </BlockRow>
+    <BlockRow>
+      <Card />
     </BlockRow>
     {/* <Jumbotron type='tilted' tiltDir='right' align='center'>
       <Block size='col-6'>
@@ -135,9 +143,9 @@ const App = (props: AppProps) => {
         </List>
       </Block>
     </BlockRow>
-    <BlockRow>
+    {/* <BlockRow>
       <Dialog />
-    </BlockRow>
+    </BlockRow> */}
   </Container>);
 };
 

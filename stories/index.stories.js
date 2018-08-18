@@ -31,14 +31,14 @@ storiesOf('Grid', module)
   .add('Right aligned Tab', () => <Tab tabs={tabs} align='right' />);
 
 storiesOf('Button', module)
-  .add('Default button', () => <Button onClick={action('clicked')}>Kodhus Button</Button>)
+  .add('Default button', () => <Button onClick={() => console.log('clicked')}>Default Button</Button>)
   .add('with rounded corners', () => (
-      <Button corner='rounded' onClick={action('clicked')}>
+      <Button corner='rounded'>
         Rounded Button
       </Button>
   ))
   .add('with Fully rounded corners', () => (
-    <Button corner='fully-rounded' onClick={action('clicked')}>
+    <Button corner='fully-rounded'>
         Fully rounded Button
       </Button>
   ));

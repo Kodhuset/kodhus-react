@@ -11,6 +11,15 @@ import { Jumbotron } from './components/Jumbotron';
 import { Navigation } from './components/Navigation';
 import { FormControl } from './components/FormControl';
 import { Input } from './components/Input';
+import { Checkbox } from './components/Checkbox';
+import { Radio } from './components/Radio';
+import { Toggle } from './components/Toggle';
+import { List } from './components/List';
+import { ListItem } from './components/ListItem';
+import { ListItemAvatar } from './components/ListItemAvatar';
+import { ListItemContent } from './components/ListItemContent';
+import { ListItemExtra } from './components/ListItemExtra';
+import { Dialog } from './components/Dialog';
 
 interface AppProps {}
 
@@ -59,7 +68,7 @@ const App = (props: AppProps) => {
       <Button color='primary' withArrow='right'>Amazing</Button>
       </Block>
     </BlockRow>
-    <Jumbotron type='tilted' tiltDir='right' align='center'>
+    {/* <Jumbotron type='tilted' tiltDir='right' align='center'>
       <Block size='col-6'>
         <h1>Introducing Codity advanced respnsive UI library</h1>
         <p className='cdt-sub-header'>
@@ -69,7 +78,7 @@ const App = (props: AppProps) => {
         </p>
         <Button href='#' corner='rounded' size='large' color='primary'>Call to action</Button>
       </Block>
-    </Jumbotron>
+    </Jumbotron> */}
     <BlockRow>
       <FormControl>
         <label>Username</label>
@@ -82,6 +91,52 @@ const App = (props: AppProps) => {
         <Input type='error' />
         <label>Something wrong</label>
       </FormControl>
+    </BlockRow>
+    <BlockRow>
+      <FormControl>
+        <Checkbox label='Are you strong or weak ??' />
+      </FormControl>
+    </BlockRow>
+    <BlockRow>
+      <FormControl>
+        <Radio label='Are you strong or weak ??' />
+      </FormControl>
+    </BlockRow>
+    <BlockRow>
+      <FormControl>
+        <Toggle label='Are you strong or weak ??' />
+      </FormControl>
+    </BlockRow>
+    <BlockRow>
+      <Block size='col-12'>
+        <List>
+          <ListItem>
+            <ListItemAvatar>
+            <i className='material-icons'>
+                 assessment
+               </i>
+            </ListItemAvatar>
+            <ListItemContent>Item 1</ListItemContent>
+            <ListItemExtra>
+            <Toggle />
+            </ListItemExtra>
+          </ListItem>
+          <ListItem>
+            <ListItemAvatar>
+            <i className='material-icons'>
+                event
+                </i>
+            </ListItemAvatar>
+            <ListItemContent>Item 2</ListItemContent>
+            <ListItemExtra>
+            <Toggle />
+            </ListItemExtra>
+          </ListItem>
+        </List>
+      </Block>
+    </BlockRow>
+    <BlockRow>
+      <Dialog />
     </BlockRow>
   </Container>);
 };

@@ -28,6 +28,10 @@ import { NavMobile } from './components/NavMobile';
 import { Card } from './components/Card';
 import { Breadcrumb } from './components/Breadcrumb';
 import { BreadcrumItem } from './components/BreadcrumItem';
+import { CardHeader } from './components/CardHeader';
+import { CardImage } from './components/CardImage';
+import { CardMain } from './components/CardMain';
+import { CardFooter } from './components/CardFooter';
 
 interface AppProps {}
 
@@ -66,7 +70,7 @@ class App extends React.Component<AppProps, {triggered: boolean}> {
       },
     };
     return (<div>
-        <Navigation mobileTriggerPos='left'
+        <Navigation mobileTriggerPos='left' sticky='true'
         triggerclick={() => this.setState({ triggered: !this.state.triggered })}>
           <NavLogo>
             <a href='#'>Logo here</a>

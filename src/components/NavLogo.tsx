@@ -14,8 +14,5 @@ export const NavLogo: React.SFC<NavLogoProps> = ({ children, align, ...rest }) =
   return (
     <div className={`logo${className}`} {...rest} >
       {children}
-        <span className='mobile-trigger'>
-          <span></span>
-        </span>
     </div>);
 };

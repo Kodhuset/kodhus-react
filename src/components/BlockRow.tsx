@@ -2,6 +2,7 @@ import * as React from 'react';
 
 export interface BlockRowProps {
   children?: React.ReactNode
+  [key: string]: any
 }
 export const BlockRow: React.SFC<BlockRowProps>
-  = ({ children }) => <div className='cdt-row'>{children}</div>;
+  = ({ children, ...rest }) => <div className='cdt-row' {...rest}>{children}</div>;

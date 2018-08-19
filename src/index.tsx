@@ -20,6 +20,8 @@ import { ListItemAvatar } from './components/ListItemAvatar';
 import { ListItemContent } from './components/ListItemContent';
 import { ListItemExtra } from './components/ListItemExtra';
 import { Dialog } from './components/Dialog';
+import { NavLogo } from './components/NavLogo';
+import { NavBar } from './components/NavBar';
 
 interface AppProps {}
 
@@ -52,93 +54,44 @@ const App = (props: AppProps) => {
       ],
     },
   };
-
-  return (<Container>
-    <Navigation itemStyle='underline' navigations={navigations}></Navigation>
-    <BlockRow>
-      <Notification actionLabel='close' autoClose='true'>
-        This is a notification
-      </Notification>
-    </BlockRow>
-    <BlockRow>
-      <Block size='col-6'>
-        <Tab tabs={tabs} selected='0' align='right' />
-      </Block>
-      <Block size='col-6'>
-      <Button color='primary' withArrow='right'>Amazing</Button>
-      </Block>
-    </BlockRow>
-    {/* <Jumbotron type='tilted' tiltDir='right' align='center'>
-      <Block size='col-6'>
-        <h1>Introducing Codity advanced respnsive UI library</h1>
-        <p className='cdt-sub-header'>
-          This is a simple hero unit,
-          a simple jumbotron-style component for calling
-           extra attention to featured content or information.
-        </p>
-        <Button href='#' corner='rounded' size='large' color='primary'>Call to action</Button>
-      </Block>
-    </Jumbotron> */}
-    <BlockRow>
-      <FormControl>
-        <label>Username</label>
-        <Input  />
-      </FormControl>
-    </BlockRow>
-    <BlockRow>
-      <FormControl>
-        <label>Password</label>
-        <Input type='error' />
-        <label>Something wrong</label>
-      </FormControl>
-    </BlockRow>
-    <BlockRow>
-      <FormControl>
-        <Checkbox label='Are you strong or weak ??' />
-      </FormControl>
-    </BlockRow>
-    <BlockRow>
-      <FormControl>
-        <Radio label='Are you strong or weak ??' />
-      </FormControl>
-    </BlockRow>
-    <BlockRow>
-      <FormControl>
-        <Toggle label='Are you strong or weak ??' />
-      </FormControl>
-    </BlockRow>
-    <BlockRow>
-      <Block size='col-12'>
-        <List>
-          <ListItem>
-            <ListItemAvatar>
-            <i className='material-icons'>
-                 assessment
-               </i>
-            </ListItemAvatar>
-            <ListItemContent>Item 1</ListItemContent>
-            <ListItemExtra>
-            <Toggle />
-            </ListItemExtra>
-          </ListItem>
-          <ListItem>
-            <ListItemAvatar>
-            <i className='material-icons'>
-                event
-                </i>
-            </ListItemAvatar>
-            <ListItemContent>Item 2</ListItemContent>
-            <ListItemExtra>
-            <Toggle />
-            </ListItemExtra>
-          </ListItem>
-        </List>
-      </Block>
-    </BlockRow>
-    <BlockRow>
-      <Dialog />
-    </BlockRow>
-  </Container>);
+  const menuStyles = {
+    backgroundColor: '#282639', position: 'absolute', height: '100vh', top: 0, width: '200px' };
+  return (<div>
+      <Navigation>
+        <NavLogo align='center'>
+          <a href='#'>Logo here</a>
+        </NavLogo>
+        <NavBar>
+          {navigations.primary.first &&
+            (<nav>
+              <ul>
+                {navigations.primary.first.items.map((primaryItems: any, i: number) => {
+                  return <li key={i}><a href='#'>{primaryItems.label}</a></li>;
+                })}
+              </ul>
+          </nav>)
+          }
+          {navigations && navigations.primary.second &&
+            (<nav>
+              <ul>
+                {navigations.primary.second.items.map((primaryItems: any, i: number) => {
+                  return <li key={i}><a href='#'>{primaryItems.label}</a></li>;
+                })}
+              </ul>
+          </nav>)
+          }
+        </NavBar>
+        {/* <NavBar secondary='true' theme='dark'>
+          <nav>
+            <ul>
+              {navigations && navigations.secondary.items.map((secondaryItems: any, i: number) => {
+                return <li key={i}><a href='#'>{secondaryItems.label}</a></li>;
+              })}
+            </ul>
+          </nav>
+        </NavBar> */}
+      </Navigation>
+  </div>);
 };
 
 ReactDOM.render(

@@ -1,12 +1,13 @@
 import * as React from 'react';
 
 export interface BlockProps {
-  children?: React.ReactNode,
+  [key: string]: any
+  children?: React.ReactNode
   size?: 'col-1' | 'col-2' | 'col-3' | 'col-4' | 'col-5' |
    'col-6' | 'col-7' | 'col-8' | 'col-9' | 'col-10' | 'col-11' | 'col-12'
 }
 
-export const Block: React.SFC<BlockProps> = ({ children, size }) => {
+export const Block: React.SFC<BlockProps> = ({ children, size, ...rest }) => {
   let classes = '';
   const sizes: any = {
     'col-1': 'cdt-1',
@@ -23,5 +24,5 @@ export const Block: React.SFC<BlockProps> = ({ children, size }) => {
     'col-12': 'cdt-12',
   };
   if (size) classes += ` ${sizes[size]}`;
-  return <div className={classes}>{children}</div>;
+  return <div className={classes} {...rest}>{children}</div>;
 };
